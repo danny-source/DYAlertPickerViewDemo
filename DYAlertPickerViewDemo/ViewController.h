@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DYAlerPickView.h"
+#import "DYAlertPickView.h"
 
-@interface ViewController : UIViewController<DYAlerPickViewDataSource, DYAlerPickViewDelegate>
+@interface ViewController : UIViewController<DYAlertPickViewDataSource, DYAlertPickViewDelegate>
 
 
 @end

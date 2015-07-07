@@ -14,7 +14,7 @@
 		30C356DC1B4BBB7B0067C7FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30C356DB1B4BBB7B0067C7FE /* Images.xcassets */; };
 		30C356DF1B4BBB7B0067C7FE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30C356DD1B4BBB7B0067C7FE /* LaunchScreen.xib */; };
 		30C356EB1B4BBB7B0067C7FE /* DYAlertPickerViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C356EA1B4BBB7B0067C7FE /* DYAlertPickerViewDemoTests.m */; };
-		30C356F71B4BBBBD0067C7FE /* DYAlerPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C356F61B4BBBBD0067C7FE /* DYAlerPickView.m */; };
+		30C356F71B4BBBBD0067C7FE /* DYAlertPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C356F61B4BBBBD0067C7FE /* DYAlertPickView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +41,8 @@
 		30C356E41B4BBB7B0067C7FE /* DYAlertPickerViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DYAlertPickerViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C356E91B4BBB7B0067C7FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30C356EA1B4BBB7B0067C7FE /* DYAlertPickerViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYAlertPickerViewDemoTests.m; sourceTree = "<group>"; };
-		30C356F51B4BBBBD0067C7FE /* DYAlerPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYAlerPickView.h; sourceTree = "<group>"; };
-		30C356F61B4BBBBD0067C7FE /* DYAlerPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYAlerPickView.m; sourceTree = "<group>"; };
+		30C356F51B4BBBBD0067C7FE /* DYAlertPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYAlertPickView.h; sourceTree = "<group>"; };
+		30C356F61B4BBBBD0067C7FE /* DYAlertPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYAlertPickView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +126,8 @@
 		30C356F41B4BBBBD0067C7FE /* DYAlertPickerView */ = {
 			isa = PBXGroup;
 			children = (
-				30C356F51B4BBBBD0067C7FE /* DYAlerPickView.h */,
-				30C356F61B4BBBBD0067C7FE /* DYAlerPickView.m */,
+				30C356F51B4BBBBD0067C7FE /* DYAlertPickView.h */,
+				30C356F61B4BBBBD0067C7FE /* DYAlertPickView.m */,
 			);
 			name = DYAlertPickerView;
 			path = DYAlertPickerViewDemo/DYAlertPickerView;
@@ -235,7 +235,7 @@
 			files = (
 				30C356D71B4BBB7B0067C7FE /* ViewController.m in Sources */,
 				30C356D41B4BBB7B0067C7FE /* AppDelegate.m in Sources */,
-				30C356F71B4BBBBD0067C7FE /* DYAlerPickView.m in Sources */,
+				30C356F71B4BBBBD0067C7FE /* DYAlertPickView.m in Sources */,
 				30C356D11B4BBB7B0067C7FE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,9 +314,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -352,8 +352,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -364,8 +365,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = DYAlertPickerViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -374,8 +378,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = DYAlertPickerViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -433,6 +440,7 @@
 				30C356F01B4BBB7B0067C7FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		30C356F11B4BBB7B0067C7FE /* Build configuration list for PBXNativeTarget "DYAlertPickerViewDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -441,6 +449,7 @@
 				30C356F31B4BBB7B0067C7FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

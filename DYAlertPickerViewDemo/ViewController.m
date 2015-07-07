@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.item = @[@"Left", @"Right", @"Left binds", @"Right binds"];
+    self.item = @[@"Left", @"Right", @"Left binds", @"Right binds", @"Other"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,27 +26,34 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSAttributedString *)DYAlerPickView:(DYAlerPickView *)pickerView
+- (NSAttributedString *)DYAlertPickView:(DYAlertPickView *)pickerView
                            titleForRow:(NSInteger)row{
     NSAttributedString *str = [[NSAttributedString alloc] initWithString:self.item[row]];
     return str;
 }
-- (NSInteger)numberOfRowsInPickerView:(DYAlerPickView *)pickerView{
+- (NSInteger)numberOfRowsInPickerView:(DYAlertPickView *)pickerView {
     return self.item.count;
 }
-- (void)DYAlerPickView:(DYAlerPickView *)pickerView didConfirmWithItemAtRow:(NSInteger)row{
+- (void)DYAlertPickView:(DYAlertPickView *)pickerView didConfirmWithItemAtRow:(NSInteger)row{
     NSLog(@"%@ is chosen!", self.item[row]);
 }
 
-- (void)DYAlertPickerViewDidClickCancelButton:(DYAlerPickView *)pickerView{
+- (void)DYAlertPickerViewDidClickCancelButton:(DYAlertPickView *)pickerView {
     NSLog(@"Canceled.");
 }
 
+- (void)DYAlertPickerViewDidClickSwitchButton:(UISwitch *)switchButton {
+    NSLog(@"switch:%@",(switchButton.isOn?@"On":@"Off"));
+}
+
+- (BOOL)DYAlertPickerViewStateOfSwitchButton {
+    return YES;
+}
+
 - (IBAction)showAlertPickerView:(id)sender {
-    DYAlerPickView *picker = [[DYAlerPickView alloc] initWithHeaderTitle:@"Both Action" cancelButtonTitle:@"Cancel" confirmButtonTitle:@"OK" switchButtonTitle:@"Don't Ask Me"];
+    DYAlertPickView *picker = [[DYAlertPickView alloc] initWithHeaderTitle:@"Both Action" cancelButtonTitle:@"2" confirmButtonTitle:@"1" switchButtonTitle:@"Don't Ask Me"];
     picker.delegate = self;
     picker.dataSource = self;
-
-    [picker showAndSelectedIndex:5];
+    [picker showAndSelectedIndex:3];
 }
 @end

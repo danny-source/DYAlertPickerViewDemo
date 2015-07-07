@@ -8,34 +8,41 @@
 
 #import <UIKit/UIKit.h>
 
-@class DYAlerPickView;
+@class DYAlertPickView;
 
-@protocol DYAlerPickViewDataSource <NSObject>
+@protocol DYAlertPickViewDataSource <NSObject>
 @required
 
 //
-- (NSAttributedString *)DYAlerPickView:(DYAlerPickView *)pickerView
+- (NSAttributedString *)DYAlertPickView:(DYAlertPickView *)pickerView
                             titleForRow:(NSInteger)row;
 
 
 //
 
-- (NSInteger)numberOfRowsInPickerView:(DYAlerPickView *)pickerView;
+- (NSInteger)numberOfRowsInPickerView:(DYAlertPickView *)pickerView;
 
 @end
 
-@protocol DYAlerPickViewDelegate <NSObject>
+@protocol DYAlertPickViewDelegate <NSObject>
 @optional
 
 // delegate for selecting item
-- (void)DYAlerPickView:(DYAlerPickView *)pickerView
+- (void)DYAlertPickView:(DYAlertPickView *)pickerView
           didConfirmWithItemAtRow:(NSInteger)row;
 
 // delegate for canceling
-- (void)DYAlertPickerViewDidClickCancelButton:(DYAlerPickView *)pickerView;
+- (void)DYAlertPickerViewDidClickCancelButton:(DYAlertPickView *)pickerView;
+
+//
+- (void)DYAlertPickerViewDidClickSwitchButton:(UISwitch *)switchButton;
+
+//
+- (BOOL)DYAlertPickerViewStateOfSwitchButton;
+
 @end
 
-@interface DYAlerPickView : UIView<UITableViewDataSource, UITableViewDelegate>
+@interface DYAlertPickView : UIView<UITableViewDataSource, UITableViewDelegate>
 
 //tap background to dismiss
 @property BOOL tapBackgroundToDismiss;
@@ -55,8 +62,8 @@
         cancelButtonTitle:(NSString *)cancelButtonTitle
        confirmButtonTitle:(NSString *)confirmButtonTitle switchButtonTitle:(NSString *)switchButtonTitle;
 
-@property id<DYAlerPickViewDelegate> delegate;
-@property id<DYAlerPickViewDataSource> dataSource;
+@property id<DYAlertPickViewDelegate> delegate;
+@property id<DYAlertPickViewDataSource> dataSource;
 
 //header background color */
 @property (nonatomic, strong) UIColor *headerBackgroundColor;

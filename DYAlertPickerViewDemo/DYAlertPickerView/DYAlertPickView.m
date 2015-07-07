@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 danny. All rights reserved.
 //
 
-#import "DYAlerPickView.h"
+#import "DYAlertPickView.h"
 
 #define DY_BACKGROUND_ALPHA 0.4
 #define DY_HEADER_HEIGHT 44.0
@@ -15,7 +15,7 @@
 #define DY_TABLEVIEW_CELL_HEIGHT 44.0
 
 
-@interface DYAlerPickView ()
+@interface DYAlertPickView ()
 @property NSString *headerTitle;
 @property NSString *cancelButtonTitle;
 @property NSString *confirmButtonTitle;
@@ -31,8 +31,9 @@
 
 typedef void (^DYAlertPickerViewDismissCallback)(void);
 
-@implementation DYAlerPickView{
+@implementation DYAlertPickView{
     DYAlertPickerViewDismissCallback callback;
+    BOOL isShowing;
 }
 
 #pragma mark - initial UIControl
@@ -62,12 +63,14 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
         self.tapPickerViewItemToConfirm = NO;
         CGRect rect= [UIScreen mainScreen].bounds;
         self.frame = rect;
+        isShowing = NO;
     }
     return self;
 }
 
 - (void)setupSubViews {
-    
+    CGRect rect= [UIScreen mainScreen].bounds;
+    self.frame = rect;
     //mask is full screen
     self.backgroundMaskView = [self buildBackgroundMaskView];
     [self addSubview:self.backgroundMaskView];
@@ -94,7 +97,10 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
                                           self.footerview.frame.size.height + self.switchView.frame.size.height);
     
     self.containerView.center = CGPointMake(self.center.x, self.center.y);
-    
+
+//
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
 
@@ -144,8 +150,10 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
 - (UIView *)buildFooterView{
     
     if (([self.cancelButtonTitle isEqualToString:@""]) && ([self.confirmButtonTitle isEqualToString:@""])){
+        self.tapPickerViewItemToConfirm = YES;
         return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     }
+    
     CGRect rect = self.switchView.frame;
     CGRect newRect = CGRectMake(0,
                                 rect.origin.y + rect.size.height,
@@ -215,7 +223,11 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
     bsv.backgroundColor = [UIColor whiteColor];
     UISwitch *sw = [[UISwitch alloc] initWithFrame:CGRectZero];
     sw.frame = CGRectMake(self.tableView.frame.size.width - sw.frame.size.width - 2, (bsv.frame.size.height - sw.frame.size.height)/2, sw.frame.size.width, sw.frame.size.height);
+    [sw addTarget:self action:@selector(switchButtonValueChanged:) forControlEvents:UIControlEventValueChanged];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, bsv.frame.size.width - sw.frame.size.width - 15, bsv.frame.size.height)];
+    if([self.delegate respondsToSelector:@selector(DYAlertPickerViewStateOfSwitchButton)]){
+        sw.on = [self.delegate DYAlertPickerViewStateOfSwitchButton];
+    }
     label.text = self.switchButtonTitle;
     label.textColor = [UIColor darkGrayColor];
     [label setNeedsDisplay];
@@ -231,7 +243,9 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
 }
 
 - (void)showAndSelectedIndex:(NSInteger)index {
+    
     [self setupSubViews];
+    isShowing = YES;
     UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
     self.frame = mainWindow.frame;
     [mainWindow addSubview:self];
@@ -268,22 +282,53 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
     if(callback){
         callback();
     }
-    [UIView animateWithDuration:0.4f delay:0.0 options:UIViewAnimationOptionCurveEaseOut
-                     animations:^{
-                         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4f];
-                         self.layer.opacity = 0.1f;
-                         self.layer.transform = CATransform3DMakeScale(3.0f, 3.0f, 1.0f);
-                     }
-                     completion:^(BOOL finished) {
-                         [self removeFromSuperview];
-                     }
-     ];
+    isShowing = NO;
+    float delayTime;
+    if (self.tapPickerViewItemToConfirm) {
+        delayTime = 0.5;
+    }else {
+        delayTime = 0;
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.4f delay:0.0 options:UIViewAnimationOptionCurveEaseOut
+                         animations:^{
+                             self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4f];
+                             self.layer.opacity = 0.1f;
+                             self.layer.transform = CATransform3DMakeScale(3.0f, 3.0f, 1.0f);
+                         }
+                         completion:^(BOOL finished) {
+                             [self removeFromSuperview];
+                             [self setNeedsDisplay];
+                         }
+         ];
+    });
+    // Request to stop receiving accelerometer events and turn off accelerometer
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+
 }
 
+- (void)orientationChanged:(NSNotification *)notification {
+    // Respond to changes in device orientation
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        for (UIView *v in [self subviews]) {
+            [v removeFromSuperview];
+        }
+        [self removeFromSuperview];
+        [self setNeedsDisplay];
+        // Request to stop receiving accelerometer events and turn off accelerometer
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+        [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+        [self show];
+        
+    });
+
+}
 
 #pragma mark - cancel/confirm button delegate
 
-- (IBAction)cancelButtonPressed:(id)sender {
+- (IBAction)cancelButtonPressed:(UIButton *)sender {
     [self dismiss:^{
         if([self.delegate respondsToSelector:@selector(DYAlertPickerViewDidClickCancelButton:)]){
             [self.delegate DYAlertPickerViewDidClickCancelButton:self];
@@ -291,14 +336,19 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
     }];
 }
 
-- (IBAction)confirmButtonPressed:(id)sender {
+- (IBAction)confirmButtonPressed:(UIButton *)sender {
     [self dismiss:^{
-        if(self.selectedIndexPath && [self.delegate respondsToSelector:@selector(DYAlerPickView:didConfirmWithItemAtRow:)]){
-            [self.delegate DYAlerPickView:self didConfirmWithItemAtRow:self.selectedIndexPath.row];
+        if(self.selectedIndexPath && [self.delegate respondsToSelector:@selector(DYAlertPickView:didConfirmWithItemAtRow:)]){
+            [self.delegate DYAlertPickView:self didConfirmWithItemAtRow:self.selectedIndexPath.row];
         }
     }];
 }
 
+- (IBAction)switchButtonValueChanged:(UISwitch *)sender {
+    if([self.delegate respondsToSelector:@selector(DYAlertPickerViewDidClickSwitchButton:)]){
+        [self.delegate DYAlertPickerViewDidClickSwitchButton:sender];
+    }
+}
 
 #pragma mark - UITableViewDataSource
 
@@ -320,8 +370,8 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    if ([self.dataSource respondsToSelector:@selector(DYAlerPickView:titleForRow:)]) {
-        cell.textLabel.attributedText = [self.dataSource DYAlerPickView:self titleForRow:indexPath.row];
+    if ([self.dataSource respondsToSelector:@selector(DYAlertPickView:titleForRow:)]) {
+        cell.textLabel.attributedText = [self.dataSource DYAlertPickView:self titleForRow:indexPath.row];
     }
     return cell;
 }
@@ -344,9 +394,9 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
     }
     self.selectedIndexPath = indexPath;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if(self.tapPickerViewItemToConfirm && [self.delegate respondsToSelector:@selector(DYAlerPickView:didConfirmWithItemAtRow:)]){
+    if(self.tapPickerViewItemToConfirm && [self.delegate respondsToSelector:@selector(DYAlertPickView:didConfirmWithItemAtRow:)]){
         [self dismiss:^{
-            [self.delegate DYAlerPickView:self didConfirmWithItemAtRow:indexPath.row];
+            [self.delegate DYAlertPickView:self didConfirmWithItemAtRow:indexPath.row];
         }];
     }
 }
