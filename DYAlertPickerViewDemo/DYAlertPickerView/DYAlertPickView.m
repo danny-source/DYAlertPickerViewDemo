@@ -105,7 +105,7 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
 
 
 - (UIView *)buildContainerView{
-    CGAffineTransform transform = CGAffineTransformMake(0.8, 0, 0, 0.6, 0, 0);
+    CGAffineTransform transform = CGAffineTransformMake(0.8, 0, 0.0, 0.6, 0, 0);
     CGRect newRect = CGRectApplyAffineTransform(self.frame, transform);
     UIView *bcv = [[UIView alloc] initWithFrame:newRect];
     bcv.layer.cornerRadius = 5.0f;
@@ -118,7 +118,7 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
     CGRect newRect = CGRectApplyAffineTransform(self.frame, transform);
     NSInteger n = [self.dataSource numberOfRowsInPickerView:self];
     CGRect tableRect;
-    float heightOffset = DY_HEADER_HEIGHT + DY_FOOTER_HEIGHT + DY_SWITCH_HEIGHT;
+    float heightOffset = DY_HEADER_HEIGHT + (([self.confirmButtonTitle isEqualToString:@""] && [self.cancelButtonTitle isEqualToString:@""])? 0.0f:DY_FOOTER_HEIGHT) + ([self.switchButtonTitle isEqualToString:@""]?0.0f:DY_SWITCH_HEIGHT);
     if(n > 0){
         float height = n * DY_TABLEVIEW_CELL_HEIGHT;
         height = height > newRect.size.height - heightOffset ? newRect.size.height - heightOffset : height;
@@ -219,6 +219,9 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
 }
 
 - (UIView *)buildSwitchView {
+    if ([self.switchButtonTitle isEqualToString:@""]){
+        return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    }
     UIView *bsv = [[UIView alloc] initWithFrame:CGRectMake(0, self.tableView.frame.origin.y + self.tableView.frame.size.height + 1, self.tableView.frame.size.width, DY_SWITCH_HEIGHT)];
     bsv.backgroundColor = [UIColor whiteColor];
     UISwitch *sw = [[UISwitch alloc] initWithFrame:CGRectZero];
