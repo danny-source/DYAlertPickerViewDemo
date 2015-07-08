@@ -60,11 +60,12 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
         self.cancelButtonHighlightedColor = [UIColor grayColor];
         self.cancelButtonBackgroundColor = [UIColor colorWithRed:255.0/255 green:71.0/255.0 blue:25.0/255 alpha:1];
     
-        self.switchButtonTitle = switchButtonTitle ? switchButtonTitle:@"";;
+        self.switchButtonTitle = switchButtonTitle ? switchButtonTitle:@"";
         self.tapPickerViewItemToConfirm = NO;
         CGRect rect= [UIScreen mainScreen].bounds;
         self.frame = rect;
         isShowing = NO;
+        NSLog(@"%@ %@ %@",self.confirmButtonTitle,self.cancelButtonTitle,self.switchButtonTitle);
     }
     return self;
 }
@@ -151,11 +152,10 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
 - (UIView *)buildFooterView{
     
     if (([self.cancelButtonTitle isEqualToString:@""]) && ([self.confirmButtonTitle isEqualToString:@""])){
-        self.tapPickerViewItemToConfirm = YES;
         return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     }
     
-    CGRect rect = self.switchView.frame;
+    CGRect rect = ([self.switchButtonTitle isEqualToString:@""]?self.tableView.frame:self.switchView.frame);
     CGRect newRect = CGRectMake(0,
                                 rect.origin.y + rect.size.height,
                                 rect.size.width,
@@ -301,6 +301,9 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
                              self.layer.transform = CATransform3DMakeScale(3.0f, 3.0f, 1.0f);
                          }
                          completion:^(BOOL finished) {
+                             for (UIView *v in [self subviews]) {
+                                 [v removeFromSuperview];
+                             }
                              [self removeFromSuperview];
                              [self setNeedsDisplay];
                          }

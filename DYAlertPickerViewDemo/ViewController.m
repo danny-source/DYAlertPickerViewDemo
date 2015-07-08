@@ -51,7 +51,7 @@
 }
 
 - (IBAction)showAlertPickerView:(id)sender {
-    DYAlertPickView *picker = [[DYAlertPickView alloc] initWithHeaderTitle:@"Both Action" cancelButtonTitle:@"2" confirmButtonTitle:@"1" switchButtonTitle:@""];
+    DYAlertPickView *picker = [[DYAlertPickView alloc] initWithHeaderTitle:@"Both Action" cancelButtonTitle:@"21" confirmButtonTitle:@"11" switchButtonTitle:@""];
     picker.delegate = self;
     picker.dataSource = self;
     [picker showAndSelectedIndex:3];
