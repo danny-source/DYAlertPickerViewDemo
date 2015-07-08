@@ -33,7 +33,7 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
 
 @implementation DYAlertPickView{
     DYAlertPickerViewDismissCallback callback;
-    BOOL isShowing;
+    BOOL isUIDeviceOrientation;
 }
 
 #pragma mark - initial UIControl
@@ -64,8 +64,7 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
         self.tapPickerViewItemToConfirm = NO;
         CGRect rect= [UIScreen mainScreen].bounds;
         self.frame = rect;
-        isShowing = NO;
-        NSLog(@"%@ %@ %@",self.confirmButtonTitle,self.cancelButtonTitle,self.switchButtonTitle);
+        isUIDeviceOrientation = NO;
     }
     return self;
 }
@@ -152,6 +151,7 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
 - (UIView *)buildFooterView{
     
     if (([self.cancelButtonTitle isEqualToString:@""]) && ([self.confirmButtonTitle isEqualToString:@""])){
+        self.tapPickerViewItemToConfirm = YES;
         return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     }
     
@@ -249,7 +249,6 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
 - (void)showAndSelectedIndex:(NSInteger)index {
     
     [self setupSubViews];
-    isShowing = YES;
     UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
     self.frame = mainWindow.frame;
     [mainWindow addSubview:self];
@@ -286,7 +285,6 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
     if(callback){
         callback();
     }
-    isShowing = NO;
     float delayTime;
     if (self.tapPickerViewItemToConfirm) {
         delayTime = 0.5;
@@ -318,7 +316,17 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
 
 - (void)orientationChanged:(NSNotification *)notification {
     // Respond to changes in device orientation
+    UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
+
+    if (isUIDeviceOrientation == NO
+        && (UIDeviceOrientationIsPortrait(orientation)
+        || UIDeviceOrientationIsLandscape(orientation))) {
+        
+    } else {
+        return;
+    }
     
+    isUIDeviceOrientation = YES;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         for (UIView *v in [self subviews]) {
             [v removeFromSuperview];
@@ -330,6 +338,9 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
         [[NSNotificationCenter defaultCenter] removeObserver:self];
         [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
         [self show];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            isUIDeviceOrientation = NO;
+        });
         
     });
 
