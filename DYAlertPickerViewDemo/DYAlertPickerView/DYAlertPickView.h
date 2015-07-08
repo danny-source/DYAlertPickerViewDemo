@@ -20,7 +20,7 @@
 
 //
 
-- (NSInteger)numberOfRowsInPickerView:(DYAlertPickView *)pickerView;
+- (NSInteger)numberOfRowsInDYAlertPickerView:(DYAlertPickView *)pickerView;
 
 @end
 

@@ -31,7 +31,7 @@
     NSAttributedString *str = [[NSAttributedString alloc] initWithString:self.item[row]];
     return str;
 }
-- (NSInteger)numberOfRowsInPickerView:(DYAlertPickView *)pickerView {
+- (NSInteger)numberOfRowsInDYAlertPickerView:(DYAlertPickView *)pickerView {
     return self.item.count;
 }
 - (void)DYAlertPickView:(DYAlertPickView *)pickerView didConfirmWithItemAtRow:(NSInteger)row{

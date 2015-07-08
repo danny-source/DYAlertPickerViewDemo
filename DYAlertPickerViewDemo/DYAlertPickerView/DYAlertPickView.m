@@ -118,7 +118,7 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
 - (UITableView *)buildTableView{
     CGAffineTransform transform = CGAffineTransformMake(0.8, 0, 0, 0.6, 0, 0);
     CGRect newRect = CGRectApplyAffineTransform(self.frame, transform);
-    NSInteger n = [self.dataSource numberOfRowsInPickerView:self];
+    NSInteger n = [self.dataSource numberOfRowsInDYAlertPickerView:self];
     CGRect tableRect;
     float heightOffset = DY_HEADER_HEIGHT + (([self.confirmButtonTitle isEqualToString:@""] && [self.cancelButtonTitle isEqualToString:@""])? 0.0f:DY_FOOTER_HEIGHT) + ([self.switchButtonTitle isEqualToString:@""]?0.0f:DY_SWITCH_HEIGHT);
     if(n > 0){
@@ -360,8 +360,8 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if ([self.dataSource respondsToSelector:@selector(numberOfRowsInPickerView:)]) {
-        return [self.dataSource numberOfRowsInPickerView:self];
+    if ([self.dataSource respondsToSelector:@selector(numberOfRowsInDYAlertPickerView:)]) {
+        return [self.dataSource numberOfRowsInDYAlertPickerView:self];
     }
     return 1;
 }
