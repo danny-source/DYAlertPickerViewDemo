@@ -48,7 +48,8 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
         self.headerTitle = headerTitle ? headerTitle : @"";
         self.headerTitleColor = [UIColor whiteColor];
         self.headerBackgroundColor = [UIColor colorWithRed:51.0/255 green:153.0/255 blue:255.0/255 alpha:1];
-    
+        
+        // footer button
         self.confirmButtonTitle = confirmButtonTitle ? confirmButtonTitle: @"";
         self.confirmButtonNormalColor = [UIColor whiteColor];
         self.confirmButtonHighlightedColor = [UIColor grayColor];
@@ -59,7 +60,7 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
         self.cancelButtonHighlightedColor = [UIColor grayColor];
         self.cancelButtonBackgroundColor = [UIColor colorWithRed:255.0/255 green:71.0/255.0 blue:25.0/255 alpha:1];
     
-        self.switchButtonTitle = switchButtonTitle;
+        self.switchButtonTitle = switchButtonTitle ? switchButtonTitle:@"";;
         self.tapPickerViewItemToConfirm = NO;
         CGRect rect= [UIScreen mainScreen].bounds;
         self.frame = rect;

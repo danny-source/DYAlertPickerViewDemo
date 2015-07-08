@@ -35,11 +35,11 @@
     return self.item.count;
 }
 - (void)DYAlertPickView:(DYAlertPickView *)pickerView didConfirmWithItemAtRow:(NSInteger)row{
-    NSLog(@"%@ is chosen!", self.item[row]);
+    NSLog(@"%@ didConfirm", self.item[row]);
 }
 
 - (void)DYAlertPickerViewDidClickCancelButton:(DYAlertPickView *)pickerView {
-    NSLog(@"Canceled.");
+    NSLog(@"Canceled");
 }
 
 - (void)DYAlertPickerViewDidClickSwitchButton:(UISwitch *)switchButton {
