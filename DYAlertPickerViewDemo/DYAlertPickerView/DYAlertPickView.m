@@ -304,6 +304,7 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
                              for (UIView *v in [self subviews]) {
                                  [v removeFromSuperview];
                              }
+                             self.layer.transform = CATransform3DMakeScale(1, 1, 1);
                              [self removeFromSuperview];
                              [self setNeedsDisplay];
                          }
@@ -322,6 +323,7 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
         for (UIView *v in [self subviews]) {
             [v removeFromSuperview];
         }
+        self.layer.transform = CATransform3DMakeScale(1, 1, 1);
         [self removeFromSuperview];
         [self setNeedsDisplay];
         // Request to stop receiving accelerometer events and turn off accelerometer
