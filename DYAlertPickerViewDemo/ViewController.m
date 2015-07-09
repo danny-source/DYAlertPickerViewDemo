@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.item = @[@"Left", @"Right", @"Left binds", @"Right binds", @"Other"];
+    self.item = @[@"Item 1", @"Item 2", @"Item 3", @"Item 4", @"Item 5"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,7 +51,7 @@
 }
 
 - (IBAction)showAlertPickerView:(id)sender {
-    DYAlertPickView *picker = [[DYAlertPickView alloc] initWithHeaderTitle:@"Both Action" cancelButtonTitle:@"21" confirmButtonTitle:@"11" switchButtonTitle:@""];
+    DYAlertPickView *picker = [[DYAlertPickView alloc] initWithHeaderTitle:@"Title" cancelButtonTitle:@"Cancel" confirmButtonTitle:@"Confirm" switchButtonTitle:@"Don't ask me"];
     picker.delegate = self;
     picker.dataSource = self;
     [picker showAndSelectedIndex:3];
