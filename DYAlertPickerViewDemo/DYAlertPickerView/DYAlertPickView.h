@@ -35,7 +35,10 @@
 - (void)DYAlertPickerViewDidClickCancelButton:(DYAlertPickView *)pickerView;
 
 //
-- (void)DYAlertPickerViewDidClickSwitchButton:(UISwitch *)switchButton;
+
+- (void)DYAlertPickerViewDidClickSwitchButton:(UISwitch *)switchButton __attribute((deprecated("use DYAlertPickerViewDidClickSwitchButton:switchButton:")));
+
+- (void)DYAlertPickerViewDidClickSwitchButton:(DYAlertPickView *)pickerView switchButton:(UISwitch *)switchButton;
 
 //
 - (BOOL)DYAlertPickerViewStateOfSwitchButton;

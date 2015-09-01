@@ -42,9 +42,10 @@
     NSLog(@"Canceled");
 }
 
-- (void)DYAlertPickerViewDidClickSwitchButton:(UISwitch *)switchButton {
+- (void)DYAlertPickerViewDidClickSwitchButton:(DYAlertPickView *)pickerView switchButton:(UISwitch *)switchButton {
     NSLog(@"switch:%@",(switchButton.isOn?@"On":@"Off"));
 }
+
 
 - (BOOL)DYAlertPickerViewStateOfSwitchButton {
     return YES;

@@ -365,8 +365,10 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
 }
 
 - (IBAction)switchButtonValueChanged:(UISwitch *)sender {
-    if([self.delegate respondsToSelector:@selector(DYAlertPickerViewDidClickSwitchButton:)]){
-        [self.delegate DYAlertPickerViewDidClickSwitchButton:sender];
+    NSAssert(![self.delegate respondsToSelector:@selector(DYAlertPickerViewDidClickSwitchButton:)], @"DYAlertPickerViewDidClickSwitchButton: is deprecated");
+    
+    if([self.delegate respondsToSelector:@selector(DYAlertPickerViewDidClickSwitchButton:switchButton:)]){
+        [self.delegate DYAlertPickerViewDidClickSwitchButton:self switchButton:sender];
     }
 }
 
