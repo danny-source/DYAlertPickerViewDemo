@@ -26,28 +26,28 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSAttributedString *)DYAlertPickView:(DYAlertPickView *)pickerView
+- (NSAttributedString *)pickerview:(DYAlertPickView *)pickerView
                            titleForRow:(NSInteger)row{
     NSAttributedString *str = [[NSAttributedString alloc] initWithString:self.item[row]];
     return str;
 }
-- (NSInteger)numberOfRowsInDYAlertPickerView:(DYAlertPickView *)pickerView {
+- (NSInteger)numberOfRowsInPickerview:(DYAlertPickView *)pickerView {
     return self.item.count;
 }
-- (void)DYAlertPickView:(DYAlertPickView *)pickerView didConfirmWithItemAtRow:(NSInteger)row{
+- (void)pickerview:(DYAlertPickView *)pickerView didConfirmWithItemAtRow:(NSInteger)row{
     NSLog(@"%@ didConfirm", self.item[row]);
 }
 
-- (void)DYAlertPickerViewDidClickCancelButton:(DYAlertPickView *)pickerView {
+- (void)pickerviewDidClickCancelButton:(DYAlertPickView *)pickerView {
     NSLog(@"Canceled");
 }
 
-- (void)DYAlertPickerViewDidClickSwitchButton:(DYAlertPickView *)pickerView switchButton:(UISwitch *)switchButton {
+- (void)pickerviewDidClickSwitchButton:(DYAlertPickView *)pickerView switchButton:(UISwitch *)switchButton {
     NSLog(@"switch:%@",(switchButton.isOn?@"On":@"Off"));
 }
 
 
-- (BOOL)DYAlertPickerViewStateOfSwitchButton {
+- (BOOL)pickerviewStateOfSwitchButton {
     return YES;
 }
 

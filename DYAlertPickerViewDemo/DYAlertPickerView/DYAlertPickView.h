@@ -14,13 +14,13 @@
 @required
 
 //
-- (NSAttributedString *)DYAlertPickView:(DYAlertPickView *)pickerView
+- (NSAttributedString *)pickerview:(DYAlertPickView *)pickerView
                             titleForRow:(NSInteger)row;
 
 
 //
 
-- (NSInteger)numberOfRowsInDYAlertPickerView:(DYAlertPickView *)pickerView;
+- (NSInteger)numberOfRowsInPickerview:(DYAlertPickView *)pickerView;
 
 @end
 
@@ -28,20 +28,20 @@
 @optional
 
 // delegate for selecting item
-- (void)DYAlertPickView:(DYAlertPickView *)pickerView
+- (void)pickerview:(DYAlertPickView *)pickerView
           didConfirmWithItemAtRow:(NSInteger)row;
 
 // delegate for canceling
-- (void)DYAlertPickerViewDidClickCancelButton:(DYAlertPickView *)pickerView;
+- (void)pickerviewDidClickCancelButton:(DYAlertPickView *)pickerView;
 
 //
 
-- (void)DYAlertPickerViewDidClickSwitchButton:(UISwitch *)switchButton __attribute((deprecated("use DYAlertPickerViewDidClickSwitchButton:switchButton:")));
+- (void)pickerviewDidClickSwitchButton:(UISwitch *)switchButton __attribute((deprecated("use DYAlertPickerViewDidClickSwitchButton:switchButton:")));
 
-- (void)DYAlertPickerViewDidClickSwitchButton:(DYAlertPickView *)pickerView switchButton:(UISwitch *)switchButton;
+- (void)pickerviewDidClickSwitchButton:(DYAlertPickView *)pickerView switchButton:(UISwitch *)switchButton;
 
 //
-- (BOOL)DYAlertPickerViewStateOfSwitchButton;
+- (BOOL)pickerviewStateOfSwitchButton;
 
 @end
 

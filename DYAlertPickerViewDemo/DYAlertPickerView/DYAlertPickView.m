@@ -117,7 +117,10 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
 - (UITableView *)buildTableView{
     CGAffineTransform transform = CGAffineTransformMake(0.8, 0, 0, 0.6, 0, 0);
     CGRect newRect = CGRectApplyAffineTransform(self.frame, transform);
-    NSInteger n = [self.dataSource numberOfRowsInDYAlertPickerView:self];
+    NSInteger n = 0;
+    if ([self.dataSource respondsToSelector:@selector(numberOfRowsInPickerview:)]) {
+        n = [self.dataSource numberOfRowsInPickerview:self]
+    }
     CGRect tableRect;
     float heightOffset = DY_HEADER_HEIGHT + (([self.confirmButtonTitle isEqualToString:@""] && [self.cancelButtonTitle isEqualToString:@""])? 0.0f:DY_FOOTER_HEIGHT) + ([self.switchButtonTitle isEqualToString:@""]?0.0f:DY_SWITCH_HEIGHT);
     if(n > 0){
@@ -229,8 +232,8 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
     sw.frame = CGRectMake(self.tableView.frame.size.width - sw.frame.size.width - 2, (bsv.frame.size.height - sw.frame.size.height)/2, sw.frame.size.width, sw.frame.size.height);
     [sw addTarget:self action:@selector(switchButtonValueChanged:) forControlEvents:UIControlEventValueChanged];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, bsv.frame.size.width - sw.frame.size.width - 15, bsv.frame.size.height)];
-    if([self.delegate respondsToSelector:@selector(DYAlertPickerViewStateOfSwitchButton)]){
-        sw.on = [self.delegate DYAlertPickerViewStateOfSwitchButton];
+    if([self.delegate respondsToSelector:@selector(pickerviewStateOfSwitchButton)]){
+        sw.on = [self.delegate pickerviewStateOfSwitchButton];
     }
     label.text = self.switchButtonTitle;
     label.textColor = [UIColor darkGrayColor];
@@ -350,33 +353,33 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
 
 - (IBAction)cancelButtonPressed:(UIButton *)sender {
     [self dismiss:^{
-        if([self.delegate respondsToSelector:@selector(DYAlertPickerViewDidClickCancelButton:)]){
-            [self.delegate DYAlertPickerViewDidClickCancelButton:self];
+        if([self.delegate respondsToSelector:@selector(pickerviewDidClickCancelButton:)]){
+            [self.delegate pickerviewDidClickCancelButton:self];
         }
     }];
 }
 
 - (IBAction)confirmButtonPressed:(UIButton *)sender {
     [self dismiss:^{
-        if(self.selectedIndexPath && [self.delegate respondsToSelector:@selector(DYAlertPickView:didConfirmWithItemAtRow:)]){
-            [self.delegate DYAlertPickView:self didConfirmWithItemAtRow:self.selectedIndexPath.row];
+        if(self.selectedIndexPath && [self.delegate respondsToSelector:@selector(pickerview:didConfirmWithItemAtRow:)]){
+            [self.delegate pickerview:self didConfirmWithItemAtRow:self.selectedIndexPath.row];
         }
     }];
 }
 
 - (IBAction)switchButtonValueChanged:(UISwitch *)sender {
-    NSAssert(![self.delegate respondsToSelector:@selector(DYAlertPickerViewDidClickSwitchButton:)], @"DYAlertPickerViewDidClickSwitchButton: is deprecated");
+    NSAssert(![self.delegate respondsToSelector:@selector(pickerviewDidClickSwitchButton:)], @"DYAlertPickerViewDidClickSwitchButton: is deprecated");
     
-    if([self.delegate respondsToSelector:@selector(DYAlertPickerViewDidClickSwitchButton:switchButton:)]){
-        [self.delegate DYAlertPickerViewDidClickSwitchButton:self switchButton:sender];
+    if([self.delegate respondsToSelector:@selector(pickerviewDidClickSwitchButton:switchButton:)]){
+        [self.delegate pickerviewDidClickSwitchButton:self switchButton:sender];
     }
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if ([self.dataSource respondsToSelector:@selector(numberOfRowsInDYAlertPickerView:)]) {
-        return [self.dataSource numberOfRowsInDYAlertPickerView:self];
+    if ([self.dataSource respondsToSelector:@selector(numberOfRowsInPickerview:)]) {
+        return [self.dataSource numberOfRowsInPickerview:self];
     }
     return 1;
 }
@@ -392,8 +395,8 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    if ([self.dataSource respondsToSelector:@selector(DYAlertPickView:titleForRow:)]) {
-        cell.textLabel.attributedText = [self.dataSource DYAlertPickView:self titleForRow:indexPath.row];
+    if ([self.dataSource respondsToSelector:@selector(pickerview:titleForRow:)]) {
+        cell.textLabel.attributedText = [self.dataSource pickerview:self titleForRow:indexPath.row];
     }
     return cell;
 }
@@ -416,9 +419,9 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
     }
     self.selectedIndexPath = indexPath;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if(self.tapPickerViewItemToConfirm && [self.delegate respondsToSelector:@selector(DYAlertPickView:didConfirmWithItemAtRow:)]){
+    if(self.tapPickerViewItemToConfirm && [self.delegate respondsToSelector:@selector(pickerview:didConfirmWithItemAtRow:)]){
         [self dismiss:^{
-            [self.delegate DYAlertPickView:self didConfirmWithItemAtRow:indexPath.row];
+            [self.delegate pickerview:self didConfirmWithItemAtRow:indexPath.row];
         }];
     }
 }

@@ -7,27 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3002D4071C3E5DE400C5AECB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3002D4061C3E5DE400C5AECB /* AppDelegate.swift */; };
+		3002D4091C3E5DE400C5AECB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3002D4081C3E5DE400C5AECB /* ViewController.swift */; };
+		3002D40C1C3E5DE400C5AECB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3002D40A1C3E5DE400C5AECB /* Main.storyboard */; };
+		3002D40E1C3E5DE400C5AECB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3002D40D1C3E5DE400C5AECB /* Assets.xcassets */; };
+		3002D4111C3E5DE400C5AECB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3002D40F1C3E5DE400C5AECB /* LaunchScreen.storyboard */; };
 		30C356D11B4BBB7B0067C7FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C356D01B4BBB7B0067C7FE /* main.m */; };
 		30C356D41B4BBB7B0067C7FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C356D31B4BBB7B0067C7FE /* AppDelegate.m */; };
 		30C356D71B4BBB7B0067C7FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C356D61B4BBB7B0067C7FE /* ViewController.m */; };
 		30C356DA1B4BBB7B0067C7FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30C356D81B4BBB7B0067C7FE /* Main.storyboard */; };
 		30C356DC1B4BBB7B0067C7FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30C356DB1B4BBB7B0067C7FE /* Images.xcassets */; };
 		30C356DF1B4BBB7B0067C7FE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30C356DD1B4BBB7B0067C7FE /* LaunchScreen.xib */; };
-		30C356EB1B4BBB7B0067C7FE /* DYAlertPickerViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C356EA1B4BBB7B0067C7FE /* DYAlertPickerViewDemoTests.m */; };
 		30C356F71B4BBBBD0067C7FE /* DYAlertPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C356F61B4BBBBD0067C7FE /* DYAlertPickView.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		30C356E51B4BBB7B0067C7FE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 30C356C31B4BBB7B0067C7FE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 30C356CA1B4BBB7B0067C7FE;
-			remoteInfo = DYAlertPickerViewDemo;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		3002D4041C3E5DE400C5AECB /* DYAlertPickerViewDemo-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DYAlertPickerViewDemo-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3002D4061C3E5DE400C5AECB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3002D4081C3E5DE400C5AECB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3002D40B1C3E5DE400C5AECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3002D40D1C3E5DE400C5AECB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3002D4101C3E5DE400C5AECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3002D4121C3E5DE400C5AECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3002D4161C3E5E5400C5AECB /* DYAlertPickerView-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DYAlertPickerView-Bridging-Header.h"; sourceTree = "<group>"; };
 		30C356CB1B4BBB7B0067C7FE /* DYAlertPickerViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYAlertPickerViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C356CF1B4BBB7B0067C7FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30C356D01B4BBB7B0067C7FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,7 +40,6 @@
 		30C356D91B4BBB7B0067C7FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30C356DB1B4BBB7B0067C7FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		30C356DE1B4BBB7B0067C7FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		30C356E41B4BBB7B0067C7FE /* DYAlertPickerViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DYAlertPickerViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C356E91B4BBB7B0067C7FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30C356EA1B4BBB7B0067C7FE /* DYAlertPickerViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYAlertPickerViewDemoTests.m; sourceTree = "<group>"; };
 		30C356F51B4BBBBD0067C7FE /* DYAlertPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYAlertPickView.h; sourceTree = "<group>"; };
@@ -46,14 +47,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		30C356C81B4BBB7B0067C7FE /* Frameworks */ = {
+		3002D4011C3E5DE400C5AECB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		30C356E11B4BBB7B0067C7FE /* Frameworks */ = {
+		30C356C81B4BBB7B0067C7FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -63,12 +64,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3002D4051C3E5DE400C5AECB /* DYAlertPickerViewDemo-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				3002D4061C3E5DE400C5AECB /* AppDelegate.swift */,
+				3002D4081C3E5DE400C5AECB /* ViewController.swift */,
+				3002D40A1C3E5DE400C5AECB /* Main.storyboard */,
+				3002D40D1C3E5DE400C5AECB /* Assets.xcassets */,
+				3002D40F1C3E5DE400C5AECB /* LaunchScreen.storyboard */,
+				3002D4121C3E5DE400C5AECB /* Info.plist */,
+				3002D4161C3E5E5400C5AECB /* DYAlertPickerView-Bridging-Header.h */,
+			);
+			path = "DYAlertPickerViewDemo-Swift";
+			sourceTree = "<group>";
+		};
 		30C356C21B4BBB7B0067C7FE = {
 			isa = PBXGroup;
 			children = (
 				30C356F41B4BBBBD0067C7FE /* DYAlertPickerView */,
 				30C356CD1B4BBB7B0067C7FE /* DYAlertPickerViewDemo */,
 				30C356E71B4BBB7B0067C7FE /* DYAlertPickerViewDemoTests */,
+				3002D4051C3E5DE400C5AECB /* DYAlertPickerViewDemo-Swift */,
 				30C356CC1B4BBB7B0067C7FE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				30C356CB1B4BBB7B0067C7FE /* DYAlertPickerViewDemo.app */,
-				30C356E41B4BBB7B0067C7FE /* DYAlertPickerViewDemoTests.xctest */,
+				3002D4041C3E5DE400C5AECB /* DYAlertPickerViewDemo-Swift.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,6 +152,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3002D4031C3E5DE400C5AECB /* DYAlertPickerViewDemo-Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3002D4131C3E5DE400C5AECB /* Build configuration list for PBXNativeTarget "DYAlertPickerViewDemo-Swift" */;
+			buildPhases = (
+				3002D4001C3E5DE400C5AECB /* Sources */,
+				3002D4011C3E5DE400C5AECB /* Frameworks */,
+				3002D4021C3E5DE400C5AECB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DYAlertPickerViewDemo-Swift";
+			productName = "DYAlertPickerViewDemo-Swift";
+			productReference = 3002D4041C3E5DE400C5AECB /* DYAlertPickerViewDemo-Swift.app */;
+			productType = "com.apple.product-type.application";
+		};
 		30C356CA1B4BBB7B0067C7FE /* DYAlertPickerViewDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30C356EE1B4BBB7B0067C7FE /* Build configuration list for PBXNativeTarget "DYAlertPickerViewDemo" */;
@@ -153,39 +186,21 @@
 			productReference = 30C356CB1B4BBB7B0067C7FE /* DYAlertPickerViewDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		30C356E31B4BBB7B0067C7FE /* DYAlertPickerViewDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 30C356F11B4BBB7B0067C7FE /* Build configuration list for PBXNativeTarget "DYAlertPickerViewDemoTests" */;
-			buildPhases = (
-				30C356E01B4BBB7B0067C7FE /* Sources */,
-				30C356E11B4BBB7B0067C7FE /* Frameworks */,
-				30C356E21B4BBB7B0067C7FE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				30C356E61B4BBB7B0067C7FE /* PBXTargetDependency */,
-			);
-			name = DYAlertPickerViewDemoTests;
-			productName = DYAlertPickerViewDemoTests;
-			productReference = 30C356E41B4BBB7B0067C7FE /* DYAlertPickerViewDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		30C356C31B4BBB7B0067C7FE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = danny;
 				TargetAttributes = {
+					3002D4031C3E5DE400C5AECB = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					30C356CA1B4BBB7B0067C7FE = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					30C356E31B4BBB7B0067C7FE = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 30C356CA1B4BBB7B0067C7FE;
 					};
 				};
 			};
@@ -203,12 +218,22 @@
 			projectRoot = "";
 			targets = (
 				30C356CA1B4BBB7B0067C7FE /* DYAlertPickerViewDemo */,
-				30C356E31B4BBB7B0067C7FE /* DYAlertPickerViewDemoTests */,
+				3002D4031C3E5DE400C5AECB /* DYAlertPickerViewDemo-Swift */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3002D4021C3E5DE400C5AECB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3002D4111C3E5DE400C5AECB /* LaunchScreen.storyboard in Resources */,
+				3002D40E1C3E5DE400C5AECB /* Assets.xcassets in Resources */,
+				3002D40C1C3E5DE400C5AECB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30C356C91B4BBB7B0067C7FE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -219,16 +244,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		30C356E21B4BBB7B0067C7FE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3002D4001C3E5DE400C5AECB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3002D4091C3E5DE400C5AECB /* ViewController.swift in Sources */,
+				3002D4071C3E5DE400C5AECB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30C356C71B4BBB7B0067C7FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -240,25 +267,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		30C356E01B4BBB7B0067C7FE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				30C356EB1B4BBB7B0067C7FE /* DYAlertPickerViewDemoTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		30C356E61B4BBB7B0067C7FE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 30C356CA1B4BBB7B0067C7FE /* DYAlertPickerViewDemo */;
-			targetProxy = 30C356E51B4BBB7B0067C7FE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
+		3002D40A1C3E5DE400C5AECB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3002D40B1C3E5DE400C5AECB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3002D40F1C3E5DE400C5AECB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3002D4101C3E5DE400C5AECB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		30C356D81B4BBB7B0067C7FE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -278,6 +305,35 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3002D4141C3E5DE400C5AECB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "DYAlertPickerViewDemo-Swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "tw.35g.cms.ios.DYAlertPickerViewDemo-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "DYAlertPickerViewDemo-Swift/DYAlertPickerView-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3002D4151C3E5DE400C5AECB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "DYAlertPickerViewDemo-Swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tw.35g.cms.ios.DYAlertPickerViewDemo-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "DYAlertPickerViewDemo-Swift/DYAlertPickerView-Bridging-Header.h";
+			};
+			name = Release;
+		};
 		30C356EC1B4BBB7B0067C7FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -299,6 +355,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -316,7 +373,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -370,6 +427,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "tw.35g.cms.ui.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -383,47 +441,22 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "tw.35g.cms.ui.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		30C356F21B4BBB7B0067C7FE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = DYAlertPickerViewDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DYAlertPickerViewDemo.app/DYAlertPickerViewDemo";
-			};
-			name = Debug;
-		};
-		30C356F31B4BBB7B0067C7FE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = DYAlertPickerViewDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DYAlertPickerViewDemo.app/DYAlertPickerViewDemo";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3002D4131C3E5DE400C5AECB /* Build configuration list for PBXNativeTarget "DYAlertPickerViewDemo-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3002D4141C3E5DE400C5AECB /* Debug */,
+				3002D4151C3E5DE400C5AECB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		30C356C61B4BBB7B0067C7FE /* Build configuration list for PBXProject "DYAlertPickerViewDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -438,15 +471,6 @@
 			buildConfigurations = (
 				30C356EF1B4BBB7B0067C7FE /* Debug */,
 				30C356F01B4BBB7B0067C7FE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		30C356F11B4BBB7B0067C7FE /* Build configuration list for PBXNativeTarget "DYAlertPickerViewDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				30C356F21B4BBB7B0067C7FE /* Debug */,
-				30C356F31B4BBB7B0067C7FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
