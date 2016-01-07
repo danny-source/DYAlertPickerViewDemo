@@ -21,29 +21,29 @@ class ViewController: UIViewController, DYAlertPickViewDelegate, DYAlertPickView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    func alertpickerview(pickerView: DYAlertPickView!, titleForRow row: Int) -> NSAttributedString? {
+ 
+    func pickerview(pickerView: DYAlertPickView!, titleForRow row: Int) -> NSAttributedString! {
         let str = NSAttributedString(string: items[row])
         return str
     }
-    
     func numberOfRowsInPickerview(pickerView: DYAlertPickView!) -> Int {
         return items.count
     }
     
-    func alertpickerview(pickerView: DYAlertPickView!, didConfirmWithItemAtRow row: Int) {
-        NSLog("%@ didConfirm", items[row]);
+    
+    func pickerview(pickerView: DYAlertPickView!, didConfirmWithItemAtRow row: Int) {
+        print(items[row]," didConfirm");
     }
     
-    func alertpickerviewDidClickCancelButton(pickerView: DYAlertPickView!) {
-        NSLog("Canceled");
+    func pickerviewDidClickCancelButton(pickerView: DYAlertPickView!) {
+        print("Canceled");
     }
     
-    func alertpickerviewDidClickSwitchButton(pickerView: DYAlertPickView!, switchButton: UISwitch!) {
+    func pickerviewDidClickSwitchButton(pickerView: DYAlertPickView!, switchButton: UISwitch!) {
         if (switchButton.on) {
-            NSLog("On")
+            print("On")
         }else {
-            NSLog("Off")
+            print("Off")
         }
     }
     
@@ -56,6 +56,7 @@ class ViewController: UIViewController, DYAlertPickViewDelegate, DYAlertPickView
         self.alertView.delegate = self;
         self.alertView.dataSource = self;
         items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
+        self.alertView.showAndSelectedIndex(3)
     }
 }
 

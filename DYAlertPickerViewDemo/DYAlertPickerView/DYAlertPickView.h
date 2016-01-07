@@ -17,9 +17,6 @@
 - (NSAttributedString *)pickerview:(DYAlertPickView *)pickerView
                             titleForRow:(NSInteger)row;
 
-
-//
-
 - (NSInteger)numberOfRowsInPickerview:(DYAlertPickView *)pickerView;
 
 @end

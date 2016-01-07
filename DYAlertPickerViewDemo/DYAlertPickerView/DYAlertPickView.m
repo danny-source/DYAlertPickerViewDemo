@@ -119,7 +119,7 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
     CGRect newRect = CGRectApplyAffineTransform(self.frame, transform);
     NSInteger n = 0;
     if ([self.dataSource respondsToSelector:@selector(numberOfRowsInPickerview:)]) {
-        n = [self.dataSource numberOfRowsInPickerview:self]
+        n = [self.dataSource numberOfRowsInPickerview:self];
     }
     CGRect tableRect;
     float heightOffset = DY_HEADER_HEIGHT + (([self.confirmButtonTitle isEqualToString:@""] && [self.cancelButtonTitle isEqualToString:@""])? 0.0f:DY_FOOTER_HEIGHT) + ([self.switchButtonTitle isEqualToString:@""]?0.0f:DY_SWITCH_HEIGHT);

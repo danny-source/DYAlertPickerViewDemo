@@ -12,6 +12,7 @@
 		3002D40C1C3E5DE400C5AECB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3002D40A1C3E5DE400C5AECB /* Main.storyboard */; };
 		3002D40E1C3E5DE400C5AECB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3002D40D1C3E5DE400C5AECB /* Assets.xcassets */; };
 		3002D4111C3E5DE400C5AECB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3002D40F1C3E5DE400C5AECB /* LaunchScreen.storyboard */; };
+		301B53761C3E987100761C1C /* DYAlertPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C356F61B4BBBBD0067C7FE /* DYAlertPickView.m */; };
 		30C356D11B4BBB7B0067C7FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C356D01B4BBB7B0067C7FE /* main.m */; };
 		30C356D41B4BBB7B0067C7FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C356D31B4BBB7B0067C7FE /* AppDelegate.m */; };
 		30C356D71B4BBB7B0067C7FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C356D61B4BBB7B0067C7FE /* ViewController.m */; };
@@ -253,6 +254,7 @@
 			files = (
 				3002D4091C3E5DE400C5AECB /* ViewController.swift in Sources */,
 				3002D4071C3E5DE400C5AECB /* AppDelegate.swift in Sources */,
+				301B53761C3E987100761C1C /* DYAlertPickView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +313,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = "DYAlertPickerViewDemo-Swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "tw.35g.cms.ios.DYAlertPickerViewDemo-Swift";
@@ -326,7 +328,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "DYAlertPickerViewDemo-Swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "tw.35g.cms.ios.DYAlertPickerViewDemo-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -429,6 +431,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "tw.35g.cms.ui.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -443,6 +446,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "tw.35g.cms.ui.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -456,6 +460,7 @@
 				3002D4151C3E5DE400C5AECB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		30C356C61B4BBB7B0067C7FE /* Build configuration list for PBXProject "DYAlertPickerViewDemo" */ = {
 			isa = XCConfigurationList;
